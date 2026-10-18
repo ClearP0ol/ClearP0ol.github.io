@@ -1,0 +1,7 @@
+{{- $name := .Get "name" -}}
+{{- $filename := printf "contact-%s.svg" $name -}}
+{{- with .Page.Resources.GetMatch $filename -}}
+<span class="contact-heading-icon contact-icon-{{ $name }}" aria-hidden="true">{{ .Content | safeHTML }}</span>
+{{- else -}}
+  {{- errorf "Contact icon %q not found for %s" $filename .Page.RelPermalink -}}
+{{- end -}}

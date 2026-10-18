@@ -1,0 +1,64 @@
+{{ define "main" }}
+{{ $page := . }}
+<main class="personal-page{{ if .Params.hobby_cards }} hobby-page{{ end }}" aria-label="{{ .Title }}">
+  {{ with .Params.hobby_cards }}
+  <div class="hobby-grid">
+    {{ range $index, $card := . }}
+    <section class="hobby-card{{ if eq $index 0 }} hobby-card-featured{{ end }} hobby-card-{{ $card.id }}" aria-labelledby="hobby-{{ $card.id }}">
+      {{ with $page.Resources.GetMatch $card.image }}
+      {{ $image := . }}
+      {{ $imageWidth := 800 }}
+      {{ $imageHeight := 440 }}
+      {{ if eq $index 0 }}
+        {{ $imageWidth = 1200 }}
+        {{ $imageHeight = 300 }}
+      {{ end }}
+      {{ if reflect.IsImageResourceProcessable $image }}
+        {{ $resize := "1000x webp q85" }}
+        {{ if eq $index 0 }}{{ $resize = "1600x webp q85" }}{{ end }}
+        {{ $image = $image.Resize $resize }}
+        {{ $imageWidth = $image.Width }}
+        {{ $imageHeight = $image.Height }}
+      {{ end }}
+      <div class="hobby-banner">
+        <img src="{{ $image.RelPermalink }}" alt="" width="{{ $imageWidth }}" height="{{ $imageHeight }}" loading="{{ if eq $index 0 }}eager{{ else }}lazy{{ end }}">
+      </div>
+      {{ end }}
+      <div class="hobby-card-body">
+        <div class="hobby-card-heading">
+          <span class="hobby-number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+          <h2 id="hobby-{{ $card.id }}">{{ $card.title }}</h2>
+        </div>
+        <div class="hobby-items">
+          {{ range $card.items }}
+          {{ $item := . }}
+          {{ $itemImage := false }}
+          {{ with .image }}{{ $itemImage = $page.Resources.GetMatch . }}{{ end }}
+          <div class="hobby-item{{ if $itemImage }} hobby-item-with-image{{ end }}{{ if not (or .title .text) }} hobby-item-empty{{ end }}"{{ if not (or .title .text) }} aria-hidden="true"{{ end }}>
+            <div class="hobby-item-copy">
+              {{ with .title }}<h3>{{ . }}</h3>{{ end }}
+              {{ with .text }}<div class="hobby-item-text">{{ $page.RenderString . }}</div>{{ end }}
+            </div>
+            {{ with $itemImage }}
+            {{ $thumbnail := . }}
+            {{ if reflect.IsImageResourceProcessable $thumbnail }}
+              {{ $thumbnail = $thumbnail.Fit "480x480 webp q85" }}
+            {{ end }}
+            <div class="hobby-item-visual{{ with $item.image_theme }} hobby-item-visual-{{ . }}{{ end }}">
+              <img src="{{ $thumbnail.RelPermalink }}" alt="{{ $item.title }}"{{ if reflect.IsImageResourceProcessable $thumbnail }} width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}"{{ end }} loading="lazy">
+            </div>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+    {{ end }}
+  </div>
+  {{ else }}
+  <article class="personal-copy">
+    {{ .Content }}
+  </article>
+  {{ end }}
+</main>
+{{ end }}

@@ -1,5 +1,5 @@
 ---
-title: Publications
+title: All Publications
 cms_exclude: true
 
 # View.
@@ -10,3 +10,5 @@ banner:
   caption: ''
   image: ''
 ---
+
+No publications yet.

@@ -1,0 +1,16 @@
+Counter-Strike 2 wordmark
+Author: Valve
+Source page: https://www.counter-strike.net/cs2
+Source file: https://cdn.fastly.steamstatic.com/apps/csgo/images/csgo_react/global/logo_counterstrike2_white.svg
+
+VALORANT wordmark
+Author: Riot Games
+Source page: https://commons.wikimedia.org/wiki/File:Valorant_logo.svg
+Source file: https://upload.wikimedia.org/wikipedia/commons/4/44/Valorant_logo.svg
+Original source recorded by Wikimedia Commons: https://playvalorant.com
+
+VALORANT Ascendant 3 rank badge
+Artwork: Riot Games
+Data source: https://valorant-api.com/v1/competitivetiers?language=en-US
+Tier: ASCENDANT 3 (23)
+Source file: https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/23/largeicon.png

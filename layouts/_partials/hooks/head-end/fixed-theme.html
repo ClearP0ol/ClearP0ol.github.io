@@ -1,0 +1,30 @@
+{{- /* Lock the theme pack and color mode independently, following their header controls. */ -}}
+{{- $header := site.Params.hugoblox.header -}}
+{{- $mode := site.Params.hugoblox.theme.mode | default "system" -}}
+{{- $lock_pack := eq $header.theme_picker false -}}
+{{- $lock_mode := and (eq $header.theme_toggle false) (in (slice "light" "dark") $mode) -}}
+{{- if or $lock_pack $lock_mode -}}
+<script>
+  (() => {
+    const root = document.documentElement;
+    {{ if $lock_pack }}
+    root.removeAttribute("data-theme-pack");
+    try {
+      localStorage.removeItem("hb-theme-pack");
+    } catch (error) {
+      // The configured pack still applies when browser storage is unavailable.
+    }
+    {{ end }}
+    {{ if $lock_mode }}
+    const mode = {{ $mode | jsonify | safeJS }};
+    root.classList.toggle("dark", mode === "dark");
+    root.style.colorScheme = mode;
+    try {
+      localStorage.setItem("wc-color-theme", mode);
+    } catch (error) {
+      // The fixed mode still applies when browser storage is unavailable.
+    }
+    {{ end }}
+  })();
+</script>
+{{- end -}}

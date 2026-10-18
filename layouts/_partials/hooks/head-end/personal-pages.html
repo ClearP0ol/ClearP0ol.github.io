@@ -1,0 +1,237 @@
+{{ if eq .Type "personal" }}
+<style>
+  .personal-page {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding: 0.75rem 1.5rem 2rem;
+  }
+
+  .personal-copy {
+    max-width: 42rem;
+    margin-inline: auto;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+
+  .personal-copy h2 {
+    margin: 0 0 1rem;
+    font-size: 1.375rem;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+
+  .personal-copy h2:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  .contact-heading-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.15em;
+    height: 1.15em;
+    vertical-align: -0.2em;
+    background: transparent;
+    color: inherit;
+  }
+
+  .contact-heading-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .personal-copy p {
+    margin: 0 0 0.75rem;
+  }
+
+  .personal-copy ul,
+  .personal-copy ol {
+    margin: 0 0 0.75rem;
+    padding-inline-start: 1.25rem;
+  }
+
+  .personal-copy ol { list-style: decimal; }
+  .personal-copy ul { list-style: disc; }
+  .personal-copy li { padding-inline-start: 0.25rem; }
+  .personal-copy li + li { margin-top: 0.25rem; }
+
+  .personal-copy a,
+  .hobby-item a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .hobby-card {
+    --hobby-accent: #3f9b91;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--hb-color-foreground) 13%, var(--hb-color-background));
+    border-radius: 1.125rem;
+    background: var(--hb-color-background);
+  }
+
+  .hobby-card-featured {
+    grid-column: 1 / -1;
+    border-color: color-mix(in srgb, var(--hobby-accent) 55%, var(--hb-color-background));
+  }
+
+  .hobby-card-instruments { --hobby-accent: #9b83c1; }
+  .hobby-card-sports { --hobby-accent: #488f98; }
+
+  .hobby-banner {
+    aspect-ratio: 20 / 11;
+    overflow: hidden;
+    background: #1b2941;
+  }
+
+  .hobby-card-featured .hobby-banner {
+    aspect-ratio: 4 / 1;
+  }
+
+  .hobby-banner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hobby-card-body { padding: 1.5rem; }
+
+  .hobby-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .hobby-card-heading h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+
+  .hobby-number {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--hobby-accent) 11%, var(--hb-color-background));
+    color: var(--hobby-accent);
+    font-family: ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .hobby-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem;
+  }
+
+  .hobby-card-instruments .hobby-items {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hobby-item {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid color-mix(in srgb, var(--hb-color-foreground) 10%, var(--hb-color-background));
+    border-radius: 0.875rem;
+    background: color-mix(in srgb, var(--hb-color-foreground) 4%, var(--hb-color-background));
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+
+  .hobby-item-empty { min-height: 5.5rem; }
+  .hobby-card-featured .hobby-item-empty { min-height: 6rem; }
+  .hobby-item:only-child { grid-column: 1 / -1; }
+
+  .hobby-item-with-image {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(5rem, 30%, 9rem);
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hobby-item-copy { min-width: 0; }
+
+  .hobby-item-visual {
+    display: grid;
+    place-items: center;
+    align-self: center;
+    min-width: 0;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: #0f1721;
+  }
+
+  .hobby-item-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hobby-item h3 {
+    margin: 0 0 0.5rem;
+    color: var(--hobby-accent);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .hobby-rank {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  .hobby-rank-icon {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    object-fit: contain;
+  }
+  .hobby-item-text p { margin: 0; }
+  .hobby-item-text p + p { margin-top: 0.5rem; }
+  .hobby-item-text ul {
+    margin: 0;
+    padding-inline-start: 1.125rem;
+    list-style: disc;
+  }
+  .hobby-item-text li + li { margin-top: 0.375rem; }
+
+  @media (max-width: 767px) {
+    .personal-page { padding: 0.25rem 1.25rem 1.5rem; }
+    .personal-copy { font-size: 1rem; }
+    .hobby-grid { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+    .hobby-card-gaming .hobby-items { grid-template-columns: minmax(0, 1fr); }
+    .hobby-card-featured .hobby-banner { aspect-ratio: 2 / 1; }
+    .hobby-card-featured .hobby-banner img { object-position: 70% center; }
+    .hobby-card-body { padding: 1.125rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hobby-items { grid-template-columns: minmax(0, 1fr); }
+    .hobby-card-heading h2 { font-size: 1.125rem; }
+  }
+</style>
+{{ end }}

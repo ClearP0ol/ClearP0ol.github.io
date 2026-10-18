@@ -1,5 +1,10 @@
 ---
 title: "An example journal article"
+# Template example only: keep the source for reference, without publishing it.
+build:
+  render: never
+  list: never
+  publishResources: false
 authors:
 - me
 - Robert Ford

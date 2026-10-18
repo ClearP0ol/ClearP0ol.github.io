@@ -1,0 +1,24 @@
+{{- $page := .wcPage -}}
+{{- $content := .wcBlock.content -}}
+{{- $items := $content.items | default slice -}}
+{{- with $content.data_file -}}
+  {{- $items = (index site.Data .).items | default slice -}}
+{{- end -}}
+
+<div class="dated-section">
+  {{ with $content.title }}
+    {{ if $page.IsHome }}
+      <h2 class="dated-heading text-3xl font-bold text-gray-900 dark:text-white">{{ $page.RenderString . }}</h2>
+    {{ else }}
+      <h1 class="dated-heading text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white">{{ $page.RenderString . }}</h1>
+    {{ end }}
+  {{ end }}
+  <ul class="dated-list" aria-label="{{ $content.title }}">
+    {{ range $items }}
+      <li class="dated-row">
+        <time class="dated-date text-gray-500 dark:text-gray-400" datetime="{{ .date }}">{{ .date }}</time>
+        <div class="dated-text text-gray-900 dark:text-gray-100">{{ $page.RenderString .text }}</div>
+      </li>
+    {{ end }}
+  </ul>
+</div>

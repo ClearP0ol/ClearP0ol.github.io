@@ -1,0 +1,19 @@
+{{- /* Custom presentation; retain the project's original copyright and license files. */ -}}
+{{- $footer := site.Params.hugoblox.footer | default dict -}}
+{{- $updated := time.Now | time.In ($footer.last_updated_timezone | default "Asia/Shanghai") -}}
+
+<footer class="academic-footer">
+  {{ partial "functions/get_hook" (dict "hook" "footer-start" "context" .) }}
+  <div class="academic-footer-row">
+    <div class="academic-footer-copyright">
+      {{ partial "site_footer_license" . }}
+    </div>
+    <p class="academic-footer-updated">
+      Last updated:
+      <time datetime="{{ $updated.Format "2006-01-02" }}">{{ time.Format ($footer.last_updated_format | default "Jan 02, 2006") $updated }}</time>.
+    </p>
+  </div>
+  {{ with $footer.text }}
+    <div class="academic-footer-text">{{ . | markdownify | emojify }}</div>
+  {{ end }}
+</footer>

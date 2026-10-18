@@ -13,7 +13,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   identity:
     # Site name - shown in navbar, footer, copyright, and browser title by default
-    name: "Your Name"
+    name: "Zhaochen Tan"
     # Legal entity for copyright notices (defaults to name if not set)
     organization: ""
     # Schema.org type for structured data
@@ -33,7 +33,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   theme:
     # Mode: 'light', 'dark', or 'system' (follows OS preference)
-    mode: system
+    mode: light
     # Theme pack: name from data/themes/ or { light: "x", dark: "y" } for mix-and-match
     pack: "default"
     # Optional: Override theme pack colors
@@ -90,7 +90,7 @@ hugoblox:
     # Feature toggles
     search: true
     theme_toggle: true
-    theme_picker: true
+    theme_picker: false
     language_switcher: true
     # Call-to-action button
     cta:
@@ -103,11 +103,14 @@ hugoblox:
   # Site footer
   # ────────────────────────────────────────────────────────────────────────────
   footer:
-    # Footer style variant
+    # The custom footer is rendered by layouts/_partials/site_footer.html.
     style: minimal # minimal | columns | centered
     language_switcher: true
     # Custom footer text (HTML supported)
     text: ""
+    # The footer date is generated automatically on each build in this time zone.
+    last_updated_timezone: 'Asia/Shanghai'
+    last_updated_format: 'Jan 02, 2006'
 
   # ────────────────────────────────────────────────────────────────────────────
   # COPYRIGHT
@@ -115,7 +118,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   copyright:
     # Copyright notice - supports {year}, {name}, {license} placeholders
-    notice: "© {year} {name}. This work is licensed under {license}"
+    notice: "© {year} {name} · {license}"
     license:
       type: cc # cc | custom
       allow_derivatives: false

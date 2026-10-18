@@ -1,0 +1,25 @@
+Contact icons: local, inline SVGs with transparent outer backgrounds.
+
+Email / Gmail
+Artwork: Google
+Source: https://commons.wikimedia.org/wiki/File:Gmail_icon_(2020).svg
+Vector: https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg
+Source file is marked public domain on Wikimedia Commons.
+
+WeChat
+Bubble path: Simple Icons (CC0-1.0)
+Source: https://cdn.simpleicons.org/wechat
+Project: https://github.com/simple-icons/simple-icons
+Adaptation: white bubble paths on a rounded green app tile; no opaque outer background.
+
+QQ
+Artwork: Tencent
+Source: https://zh.wikipedia.org/wiki/File:Tencent_QQ.svg
+Vector: https://upload.wikimedia.org/wikipedia/zh/9/99/Tencent_QQ.svg
+Only an explicit black root fill was added so brand colors stay stable in both themes.
+
+GitHub
+Artwork: GitHub; SVG distributed by SVG Logos (CC0-1.0)
+Source: https://github.com/gilbarbara/logos/blob/main/logos/github-icon.svg
+Project license: https://github.com/gilbarbara/logos/blob/main/LICENSE.txt
+Adaptation: fill changed to currentColor so the mark follows the heading's light/dark color.
