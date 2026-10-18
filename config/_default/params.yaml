@@ -117,12 +117,12 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   copyright:
     # Copyright notice - supports {year}, {name}, {license} placeholders
-    notice: "© {year} {name} · {license}"
+    notice: "© {year} {name}"
     license:
-      type: cc # cc | custom
-      allow_derivatives: false
-      share_alike: true
-      allow_commercial: false
+      # An empty custom label omits the content-license link and CC icons.
+      type: custom # cc | custom
+      label: ""
+      url: ""
 
   # ────────────────────────────────────────────────────────────────────────────
   # SEO
