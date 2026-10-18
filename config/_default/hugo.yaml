@@ -63,3 +63,7 @@ security:
   _merge: deep
 sitemap:
   _merge: deep
+
+caches:
+  images:
+    dir: :cacheDir/images
