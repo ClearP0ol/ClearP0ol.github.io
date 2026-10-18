@@ -21,11 +21,10 @@ hugoblox:
     # Short tagline displayed on your site
     tagline: ""
     # Site meta description for search engines and social sharing
-    description: "The highly-customizable Hugo Academic theme powered by HugoBlox
-      Kit. Easily create your personal academic website."
+    description: "Personal academic homepage of Zhaochen Tan: education, research interests, publications, news, and contact information."
     # Social accounts (used for meta tags like Twitter Cards)
     social:
-      twitter: "GoOwnable" # Twitter/X handle for Twitter Cards (without @)
+      twitter: "" # Twitter/X handle for Twitter Cards (without @)
 
   # ────────────────────────────────────────────────────────────────────────────
   # THEME
@@ -149,7 +148,7 @@ hugoblox:
       allow:
         - /
       disallow: []
-      note: "Guidance for AI crawlers - customize to match your public content."
+      note: "Personal academic website of Zhaochen Tan."
       contact: ""
 
   # ────────────────────────────────────────────────────────────────────────────

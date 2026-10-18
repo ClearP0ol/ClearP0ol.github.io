@@ -1,15 +1,14 @@
-Counter-Strike 2 wordmark
-Author: Valve
-Source page: https://www.counter-strike.net/cs2
-Source file: https://cdn.fastly.steamstatic.com/apps/csgo/images/csgo_react/global/logo_counterstrike2_white.svg
+Current hobby illustrations
+Files: gaming-cartoon.png, piano-cartoon.png, badminton-cartoon.png
+Generated for the site owner with the built-in image_gen tool.
+Prompts: image-prompts.txt
 
-VALORANT wordmark
-Author: Riot Games
-Source page: https://commons.wikimedia.org/wiki/File:Valorant_logo.svg
-Source file: https://upload.wikimedia.org/wikipedia/commons/4/44/Valorant_logo.svg
-Original source recorded by Wikimedia Commons: https://playvalorant.com
+Current game and rank images supplied by the site owner
+Files: cs2-cover.png, valorant-cover.png, gold-s.png
+Original game artwork and marks belong to their respective owners.
 
 VALORANT Ascendant 3 rank badge
+File: ascendant-3.png
 Artwork: Riot Games
 Data source: https://valorant-api.com/v1/competitivetiers?language=en-US
 Tier: ASCENDANT 3 (23)

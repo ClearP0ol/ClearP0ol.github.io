@@ -1,12 +1,12 @@
 {
-  "name": "hugo-blox-academic-cv-starter",
+  "name": "zhaochen-tan-academic-site",
   "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@10.14.0",
-  "description": "Academic CV starter template for Hugo Blox with Tailwind CSS v4",
+  "description": "Personal academic homepage of Zhaochen Tan",
   "scripts": {
     "dev": "hugo server --disableFastRender",
-    "build": "hugo --minify && pnpm run pagefind",
+    "build": "hugo --gc --cleanDestinationDir --minify && pnpm run pagefind",
     "pagefind": "pagefind --site public"
   },
   "dependencies": {
