@@ -93,7 +93,7 @@ sections:
           text: >-
             **Silver Medal (7th place)**, 2024 China Collegiate Programming Contest (CCPC),
             Jinan Site.
-        - date: '2017–2022'
+        - date: '2017–2020'
           text: >-
             Multiple **Provincial First Prizes** in both NOIP (Senior Division) and CSP-S
             during junior and senior high school.
