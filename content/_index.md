@@ -95,7 +95,8 @@ sections:
             Jinan Site.
         - date: '2017–2022'
           text: >-
-            Multiple **Provincial First Prizes** in both NOIP (Senior Division) and CSP-S.
+            Multiple **Provincial First Prizes** in both NOIP (Senior Division) and CSP-S
+            during junior and senior high school.
     design:
       spacing:
         padding: ['48px', '0', '64px', '0']
