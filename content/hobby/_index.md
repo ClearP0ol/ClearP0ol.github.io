@@ -14,7 +14,7 @@ hobby_cards:
         image: cs2-cover.png
         image_theme: cs2
         text: |
-          **Rank:** <span class="hobby-rank">Gold S <img class="hobby-rank-icon" src="gold-s.png" alt="Gold S rank badge" width="28" height="28"></span> (Perfect World Platform)
+          **Rank:** <span class="hobby-rank">Golden S <img class="hobby-rank-icon" src="golden-s.png" alt="Golden S rank badge" width="28" height="28"></span> (Perfect World Platform)
 
           **Rating:** 1.05
 

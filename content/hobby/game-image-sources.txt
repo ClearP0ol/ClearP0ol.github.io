@@ -4,7 +4,7 @@ Generated for the site owner with the built-in image_gen tool.
 Prompts: image-prompts.txt
 
 Current game and rank images supplied by the site owner
-Files: cs2-cover.png, valorant-cover.png, gold-s.png
+Files: cs2-cover.png, valorant-cover.png, golden-s.png
 Original game artwork and marks belong to their respective owners.
 
 VALORANT Ascendant 3 rank badge
