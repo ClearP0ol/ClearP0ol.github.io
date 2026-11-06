@@ -584,7 +584,10 @@
             {{ with index . "institution" }}{{ $institution = printf "%v" . }}{{ end }}
             {{ $institution_bold := "" }}
             {{ with index . "institution_bold" }}{{ $institution_bold = printf "%v" . }}{{ end }}
-            {{ $supervisor := index . "supervisor" | default dict }}
+            {{ $supervisors := index . "supervisors" | default slice }}
+            {{ if not $supervisors }}
+              {{ with index . "supervisor" }}{{ $supervisors = slice . }}{{ end }}
+            {{ end }}
             {{ $icon := "" }}
             {{ $iconRaw := index . "icon" }}
             {{ if eq (printf "%T" $iconRaw) "string" }}
@@ -627,14 +630,17 @@
                   {{ end }}
                 </div>
               </div>
-              {{ with $supervisor.name }}
+              {{ with $supervisors }}
               <p class="education-supervisor mt-3 text-sm text-gray-700 dark:text-gray-300">
-                Supervisor:
-                {{ if $supervisor.url }}
-                  <a href="{{ $supervisor.url | safeURL }}" target="_blank" rel="noopener noreferrer" class="inline-block text-primary-600 dark:text-primary-400 hover:underline">{{ . }}</a>
-                {{ else }}
-                  {{ . }}
-                {{ end }}
+                {{ if gt (len .) 1 }}Supervisors:{{ else }}Supervisor:{{ end }}
+                {{ range $index, $supervisor := . -}}
+                {{- if $index }}, {{ end }}
+                {{- if $supervisor.url -}}
+                  <a href="{{ $supervisor.url | safeURL }}" target="_blank" rel="noopener noreferrer" class="inline-block text-primary-600 dark:text-primary-400 hover:underline">{{ $supervisor.name }}</a>
+                {{- else -}}
+                  {{ $supervisor.name }}
+                {{- end -}}
+                {{- end }}
               </p>
               {{ end }}
             </div>

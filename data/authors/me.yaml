@@ -35,9 +35,11 @@ education:
   - degree: MS In Artificial Intelligence
     institution: College of Artificial Intelligence, Zhejiang University
     institution_bold: Zhejiang University
-    supervisor:
-      name: Prof. Yi Yang
-      url: https://person.zju.edu.cn/yiyang
+    supervisors:
+      - name: Prof. Yi Yang
+        url: https://person.zju.edu.cn/yiyang
+      - name: Prof. Ruijie Quan
+        url: https://person.zju.edu.cn/quanruijie
     start: 2023
     end: 2027
   - degree: B.Eng in Software Engineering
